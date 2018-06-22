@@ -1,4 +1,4 @@
-// Print both properties of the dog object below to your console.
+// Goal: Print both properties of the dog object below to your console.
 
 let dog = {
   name: "Spot",

@@ -1,4 +1,4 @@
-// Modify the code to show the correct prototype chain.
+// Goal: Modify the code to show the correct prototype chain.
 function Dog(name) {
   this.name = name;
 }

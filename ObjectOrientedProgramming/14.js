@@ -1,4 +1,4 @@
-// Define the constructor property on the Dog prototype.
+// Goal: Define the constructor property on the Dog prototype.
 
 function Dog(name) {
   this.name = name;

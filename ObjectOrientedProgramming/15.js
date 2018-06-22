@@ -1,4 +1,4 @@
-// Use isPrototypeOf to check the prototype of beagle.
+// Goal: Use isPrototypeOf to check the prototype of beagle.
 
 function Dog(name) {
   this.name = name;

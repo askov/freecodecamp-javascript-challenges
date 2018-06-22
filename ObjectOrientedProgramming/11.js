@@ -1,4 +1,4 @@
-// Add all of the own properties of beagle to the array ownProps. Add all of the prototype properties of Dog to the array prototypeProps.
+// Goal: Add all of the own properties of beagle to the array ownProps. Add all of the prototype properties of Dog to the array prototypeProps.
 
 function Dog(name) {
   this.name = name;

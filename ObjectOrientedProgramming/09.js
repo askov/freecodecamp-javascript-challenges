@@ -1,4 +1,4 @@
-// Add the own properties of canary to the array ownProps.
+// Goal: Add the own properties of canary to the array ownProps.
 function Bird(name) {
   this.name = name;
   this.numLegs = 2;

@@ -1,4 +1,4 @@
-// Use Object.create to make two instances of Animal named duck and beagle.
+// Goal: Use Object.create to make two instances of Animal named duck and beagle.
 
 function Animal() {}
 
