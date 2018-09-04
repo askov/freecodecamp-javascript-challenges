@@ -14,14 +14,22 @@ class CircularQueue {
   }
 
   print() {
+    console.log('#queue', this.queue);
     return this.queue;
   }
 
+  moveWritePointer() {
+    if (this.write < this.max) {
+      this.write++;
+    } else {
+      this.write = 0;
+    }
+  }
 
   enqueue(item) {
-    // Only change code below this line
-
-    // Only change code above this line
+    this.queue[this.write] = item;
+    this.moveWritePointer();
+    console.log('#enqueue', item);
   }
 
   dequeue() {
@@ -30,3 +38,13 @@ class CircularQueue {
     // Only change code above this line
   }
 }
+
+
+const cq = new CircularQueue(5);
+cq.enqueue(1);
+cq.enqueue(2);
+cq.enqueue(3);
+cq.enqueue(4);
+cq.enqueue(5);
+cq.enqueue(6);
+cq.print();
