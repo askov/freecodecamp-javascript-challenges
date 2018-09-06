@@ -46,6 +46,16 @@ function Set() {
     return setC;
   };
 
+  this.intersection = function (setB) {
+    const setC = new Set();
+    collection.forEach(el => {
+      if (setB.has(el)) {
+        setC.add(el);
+      }
+    });
+    return setC;
+  };
+
 }
 
 
