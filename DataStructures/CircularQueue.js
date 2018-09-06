@@ -18,33 +18,48 @@ class CircularQueue {
     return this.queue;
   }
 
-  moveWritePointer() {
-    if (this.write < this.max) {
-      this.write++;
+  calcPointerPosition(pointer) {
+    if (pointer < this.max) {
+      return ++pointer;
     } else {
-      this.write = 0;
+      return 0;
     }
   }
 
   enqueue(item) {
-    this.queue[this.write] = item;
-    this.moveWritePointer();
-    console.log('#enqueue', item);
+    if (this.queue[this.write] === null) {
+      this.queue[this.write] = item;
+      this.write = this.calcPointerPosition(this.write);
+      return item;
+    }
+    return null;
   }
 
   dequeue() {
-    // Only change code below this line
-
-    // Only change code above this line
+    if (this.queue[this.read] !== null) {
+      const item = this.queue[this.read];
+      this.queue[this.read] = null;
+      this.read = this.calcPointerPosition(this.read);
+      return item;
+    }
+    return null;
   }
 }
 
 
 const cq = new CircularQueue(5);
-cq.enqueue(1);
-cq.enqueue(2);
-cq.enqueue(3);
-cq.enqueue(4);
-cq.enqueue(5);
-cq.enqueue(6);
+
+console.log('#enqueue', cq.enqueue(1));
+console.log('#enqueue', cq.enqueue(2));
+console.log('#enqueue', cq.enqueue(3));
+console.log('#enqueue', cq.enqueue(4));
+console.log('#enqueue', cq.enqueue(5));
+console.log('#enqueue', cq.enqueue(6));
+console.log('#enqueue', cq.dequeue());
+console.log('#enqueue', cq.enqueue(7));
+console.log('#enqueue', cq.enqueue(8));
+console.log('#enqueue', cq.dequeue());
+console.log('#enqueue', cq.enqueue(8));
+
+
 cq.print();
