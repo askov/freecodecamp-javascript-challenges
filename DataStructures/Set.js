@@ -56,6 +56,10 @@ function Set() {
     return setC;
   };
 
+  this.difference = function (setB) {
+    collection.filter(el => setB.values().indexOf(el) === -1);
+  }
+
 }
 
 
