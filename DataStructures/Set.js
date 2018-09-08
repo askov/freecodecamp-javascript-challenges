@@ -57,8 +57,18 @@ function Set() {
   };
 
   this.difference = function (setB) {
-    collection.filter(el => setB.values().indexOf(el) === -1);
+    const setC = new Set();
+    collection.values().forEach(el => {
+      if (!setB.has(el)) {
+        setC.add(el);
+      }
+    });
+    return setC;
   }
+
+  this.subset = function (setB) {
+    return !this.difference(setB).values().length;
+  };
 
 }
 
