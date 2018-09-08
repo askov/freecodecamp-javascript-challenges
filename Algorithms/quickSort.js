@@ -1,37 +1,38 @@
 /**
- * In-place quick sort (Lomuto Partitioning). O(n log n) -> O(n^2)
- */
+* In-place quick sort (Lomuto Partitioning). O(n log n) -> O(n^2)
+* @param {Array} array Array to sort
+* @returns {Array} Sorted array
+*/
+function quickSort(array) {
 
-function quickSort(arr) {
-
-  const swap = function (arr, i, j) {
-    const tmp = arr[i];
-    arr[i] = arr[j];
-    arr[j] = tmp;
+  const swap = function (array, i, j) {
+    const tmp = array[i];
+    array[i] = array[j];
+    array[j] = tmp;
   }
 
-  const partition = function (arr, lo, hi) {
-    const pivot = arr[hi];
+  const partition = function (array, lo, hi) {
+    const pivot = array[hi];
     let l = lo;
     for (let i = lo; i < hi; i++) {
-      if (arr[i] <= pivot) {
-        swap(arr, i, l);
+      if (array[i] <= pivot) {
+        swap(array, i, l);
         l++;
       }
     }
-    swap(arr, l, hi);
+    swap(array, l, hi);
     return l;
   }
 
-  const qSort = function (arr, lo, hi) {
+  const qSort = function (array, lo, hi) {
     if (lo < hi) {
-      const p = partition(arr, lo, hi);
-      qSort(arr, lo, p - 1);
-      qSort(arr, p + 1, hi);
+      const p = partition(array, lo, hi);
+      qSort(array, lo, p - 1);
+      qSort(array, p + 1, hi);
     }
   };
 
-  qSort(arr, 0, arr.length - 1);
+  qSort(array, 0, array.length - 1);
 }
 
 
