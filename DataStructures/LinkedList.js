@@ -48,16 +48,24 @@ function LinkedList() {
     length--;
     // Only change code above this line
   };
+
+  this.isEmpty = function () {
+    return head === null;
+  };
 }
 
 const ll = new LinkedList();
-
+console.log(ll.isEmpty());
 ll.add('Cat');
-ll.add('Dog');
-ll.add('Bird');
-ll.add('Parrot');
+console.log(ll.isEmpty());
+ll.remove('Cat');
+console.log(ll.isEmpty());
+
+// ll.add('Dog');
+// ll.add('Bird');
+// ll.add('Parrot');
 
 // ll.remove('Bird');
 // ll.remove('Parrot');
-ll.remove('Cat');
+// ll.remove('Cat');
 console.log(ll.head());
