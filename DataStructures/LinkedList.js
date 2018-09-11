@@ -65,6 +65,17 @@ function LinkedList() {
     }
     return cnt;
   };
+
+  this.elementAt = function (index) {
+    if (index < 0 || index >= length) return null;
+    let el = head,
+      cnt = 0;
+    while (cnt < index) {
+      el = el.next;
+      cnt++;
+    }
+    return el.element;
+  };
 }
 
 const ll = new LinkedList();
@@ -76,10 +87,11 @@ ll.add('Cat');
 
 ll.add('Dog');
 ll.add('Bird');
-console.log(ll.indexOf('Dog'));
+// console.log(ll.indexOf('Dog'));
+console.log(ll.elementAt(5));
 // ll.add('Parrot');
 
 // ll.remove('Bird');
 // ll.remove('Parrot');
 // ll.remove('Cat');
-console.log(ll.head());
+// console.log(ll.head());
