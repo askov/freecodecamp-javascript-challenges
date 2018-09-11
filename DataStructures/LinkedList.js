@@ -52,17 +52,31 @@ function LinkedList() {
   this.isEmpty = function () {
     return head === null;
   };
+
+  this.indexOf = function (element) {
+    let el = head,
+      cnt = 0;
+    while (el.element !== element && el.next) {
+      cnt++;
+      el = el.next;
+    }
+    if (el.element !== element) {
+      return -1;
+    }
+    return cnt;
+  };
 }
 
 const ll = new LinkedList();
-console.log(ll.isEmpty());
+// console.log(ll.isEmpty());
 ll.add('Cat');
-console.log(ll.isEmpty());
-ll.remove('Cat');
-console.log(ll.isEmpty());
+// console.log(ll.isEmpty());
+// ll.remove('Cat');
+// console.log(ll.isEmpty());
 
-// ll.add('Dog');
-// ll.add('Bird');
+ll.add('Dog');
+ll.add('Bird');
+console.log(ll.indexOf('Dog'));
 // ll.add('Parrot');
 
 // ll.remove('Bird');
