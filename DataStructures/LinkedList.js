@@ -49,6 +49,26 @@ function LinkedList() {
     // Only change code above this line
   };
 
+  this.removeAt = function (index) {
+    if (index < 0 || index >= length) return null;
+    length--;
+    if (index === 0) {
+      const tmp = head.element;
+      head = head.next;
+      return tmp;
+    }
+    let el = head,
+      prev = null,
+      cnt = 0;
+    while (cnt < index) {
+      prev = el;
+      el = el.next;
+      cnt++;
+    }
+    prev.next = el.next;
+    return el.element;
+  };
+
   this.isEmpty = function () {
     return head === null;
   };
@@ -87,11 +107,13 @@ ll.add('Cat');
 
 ll.add('Dog');
 ll.add('Bird');
+
+console.log(ll.removeAt(2));
 // console.log(ll.indexOf('Dog'));
-console.log(ll.elementAt(5));
+// console.log(ll.elementAt(5));
 // ll.add('Parrot');
 
 // ll.remove('Bird');
 // ll.remove('Parrot');
 // ll.remove('Cat');
-// console.log(ll.head());
+console.log(ll.head());
