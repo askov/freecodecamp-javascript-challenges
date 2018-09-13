@@ -2,20 +2,20 @@ function LinkedList() {
   var length = 0;
   var head = null;
 
-  var Node = function (element) {
+  var Node = function(element) {
     this.element = element;
     this.next = null;
   };
 
-  this.head = function () {
+  this.head = function() {
     return head;
   };
 
-  this.size = function () {
+  this.size = function() {
     return length;
   };
 
-  this.add = function (element) {
+  this.add = function(element) {
     function bindLast(node) {
       if (node.next === null) {
         node.next = el;
@@ -32,7 +32,29 @@ function LinkedList() {
     length++;
   };
 
-  this.remove = function (element) {
+  this.addAt = function(index, element) {
+    if (index < 0 || index > length) return false;
+    let el = head,
+      cnt = 0,
+      prev = null;
+    while (cnt < index) {
+      prev = el;
+      el = el.next;
+      cnt++;
+    }
+    const tmp = new Node(element);
+    if (prev) {
+      tmp.next = el;
+      prev.next = tmp;
+    } else {
+      tmp.next = head.next;
+      head = tmp;
+    }
+    length++;
+    return true;
+  };
+
+  this.remove = function(element) {
     // Only change code below this line
     let el = head,
       prev = null;
@@ -49,7 +71,7 @@ function LinkedList() {
     // Only change code above this line
   };
 
-  this.removeAt = function (index) {
+  this.removeAt = function(index) {
     if (index < 0 || index >= length) return null;
     length--;
     if (index === 0) {
@@ -69,11 +91,11 @@ function LinkedList() {
     return el.element;
   };
 
-  this.isEmpty = function () {
+  this.isEmpty = function() {
     return head === null;
   };
 
-  this.indexOf = function (element) {
+  this.indexOf = function(element) {
     let el = head,
       cnt = 0;
     while (el.element !== element && el.next) {
@@ -86,7 +108,7 @@ function LinkedList() {
     return cnt;
   };
 
-  this.elementAt = function (index) {
+  this.elementAt = function(index) {
     if (index < 0 || index >= length) return null;
     let el = head,
       cnt = 0;
@@ -101,14 +123,16 @@ function LinkedList() {
 const ll = new LinkedList();
 // console.log(ll.isEmpty());
 ll.add('Cat');
+ll.add('Dog');
+ll.addAt(0, 'Bird');
 // console.log(ll.isEmpty());
 // ll.remove('Cat');
 // console.log(ll.isEmpty());
 
-ll.add('Dog');
-ll.add('Bird');
+// ll.add('Dog');
+// ll.add('Bird');
 
-console.log(ll.removeAt(2));
+// console.log(ll.removeAt(2));
 // console.log(ll.indexOf('Dog'));
 // console.log(ll.elementAt(5));
 // ll.add('Parrot');
