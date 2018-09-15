@@ -42,8 +42,28 @@ var DoublyLinkedList = function() {
       el = el.next;
     }
   };
-  this.print = function() {
-    return [this.head, this.tail];
+
+  this.reverse = function() {
+    if (!this.head) return null;
+    let el = this.head,
+      prev = null;
+    this.tail = this.head;
+    while (el) {
+      prev = el.prev;
+      el.prev = el.next;
+      el.next = prev;
+      if (!el.prev) {
+        this.head = el;
+      }
+      el = el.prev;
+    }
+  }
+
+  this.printHead = function() {
+    return this.head;
+  };
+  this.printTail = function() {
+    return this.tail;
   };
   // change code above this line
 };
@@ -52,9 +72,11 @@ const dl = new DoublyLinkedList();
 
 dl.add('Cat');
 dl.add('Dog');
-dl.add('Bird');
+// dl.add('Bird');
 // dl.remove('Cat')
-dl.remove('Dog');
-dl.remove('Cat');
-dl.remove('Bird');
-console.log(dl.print());
+// dl.remove('Dog');
+// dl.remove('Cat');
+// dl.remove('Bird');
+dl.reverse();
+console.log(dl.printHead());
+// console.log(dl.printHead());
