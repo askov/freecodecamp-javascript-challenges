@@ -25,6 +25,7 @@ function BinarySearchTree() {
     }
     return el.value;
   }
+
   this.add = function(value) {
     if (!this.root) {
       this.root = new Node(value);
@@ -52,6 +53,21 @@ function BinarySearchTree() {
       }
     }
   }
+
+  this.isPresent = function(value) {
+    let el = this.root;
+    while (el) {
+      if (value < el.value) {
+        el = el.left;
+      } else if (value > el.value) {
+        el = el.right;
+      } else {
+        return true;
+      }
+    }
+    console.log('#el', el);
+    return false;
+  }
   // change code above this line
 }
 
@@ -61,10 +77,11 @@ bst.add(3);
 bst.add(3);
 bst.add(12);
 bst.add(12);
+console.log(bst.isPresent(11));
 // bst.add(15);
 // bst.add(1);
 // bst.add(1);
 
 var displayTree = (tree) => console.log(JSON.stringify(tree, null, 2));
 
-displayTree(bst.root);
+// displayTree(bst.root);
