@@ -70,7 +70,13 @@ function BinarySearchTree() {
   }
 
   this.findMinHeight = function() {
-
+    const fh = (el) => {
+      if (el === null) {
+        return -1;
+      }
+      return Math.min(fh(el.left), fh(el.right)) + 1;
+    }
+    return fh(this.root);
   }
 
   this.findMaxHeight = function() {
@@ -84,7 +90,7 @@ function BinarySearchTree() {
   }
 
   this.isBalanced = function() {
-
+    return (this.findMaxHeight() - this.findMinHeight()) <= 1;
   }
 
   // change code above this line
@@ -92,11 +98,14 @@ function BinarySearchTree() {
 
 let bst = new BinarySearchTree();
 bst.add(8);
-bst.add(3);
+// bst.add(3);
 bst.add(3);
 bst.add(12);
-bst.add(12);
-console.log(bst.isPresent(11));
+bst.add(10);
+bst.add(14);
+// bst.add(16);
+// console.log(bst.isPresent(11));
+console.log(bst.isBalanced());
 // bst.add(15);
 // bst.add(1);
 // bst.add(1);
