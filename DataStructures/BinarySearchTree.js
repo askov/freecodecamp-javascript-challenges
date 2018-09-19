@@ -116,6 +116,18 @@ function BinarySearchTree() {
     ir(this.root, arr);
     return arr;
   }
+
+  this.postorder = function() {
+    const po = (el, arr) => {
+      if (!el) return;
+      po(el.left, arr);
+      po(el.right, arr);
+      arr.push(el.value);
+    }
+    let arr = [];
+    po(this.root, arr);
+    return arr;
+  }
 }
 
 
@@ -128,6 +140,7 @@ bst.add(4);
 
 console.log('#preorder', bst.preorder());
 console.log('#inorder', bst.inorder());
+console.log('#postorder', bst.postorder());
 
 var displayTree = (tree) => console.log(JSON.stringify(tree, null, 2));
 
