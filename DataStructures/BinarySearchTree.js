@@ -93,22 +93,28 @@ function BinarySearchTree() {
     return (this.findMaxHeight() - this.findMinHeight()) <= 1;
   }
 
-  // change code above this line
+  this.preorder = function() {
+    const pr = (el, arr) => {
+      if (!el) return;
+      arr.push(el.value);
+      pr(el.left, arr);
+      pr(el.right, arr);
+    }
+    let arr = [];
+    pr(this.root, arr);
+    return arr;
+  }
 }
+
 
 let bst = new BinarySearchTree();
 bst.add(8);
-// bst.add(3);
 bst.add(3);
 bst.add(12);
-bst.add(10);
-bst.add(14);
-// bst.add(16);
-// console.log(bst.isPresent(11));
-console.log(bst.isBalanced());
-// bst.add(15);
-// bst.add(1);
-// bst.add(1);
+bst.add(2);
+bst.add(4);
+
+console.log('#preorder', bst.preorder());
 
 var displayTree = (tree) => console.log(JSON.stringify(tree, null, 2));
 
