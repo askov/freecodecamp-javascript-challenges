@@ -94,38 +94,41 @@ function BinarySearchTree() {
   }
 
   this.preorder = function() {
-    const pr = (el, arr) => {
+    if (!this.root) return null;
+    const preorder = (el, arr) => {
       if (!el) return;
       arr.push(el.value);
-      pr(el.left, arr);
-      pr(el.right, arr);
+      preorder(el.left, arr);
+      preorder(el.right, arr);
     }
     let arr = [];
-    pr(this.root, arr);
+    preorder(this.root, arr);
     return arr;
   }
 
   this.inorder = function() {
-    const ir = (el, arr) => {
+    if (!this.root) return null;
+    const inorder = (el, arr) => {
       if (!el) return;
-      ir(el.left, arr);
+      inorder(el.left, arr);
       arr.push(el.value);
-      ir(el.right, arr);
+      inorder(el.right, arr);
     }
     let arr = [];
-    ir(this.root, arr);
+    inorder(this.root, arr);
     return arr;
   }
 
   this.postorder = function() {
-    const po = (el, arr) => {
+    if (!this.root) return null;
+    const postorder = (el, arr) => {
       if (!el) return;
-      po(el.left, arr);
-      po(el.right, arr);
+      postorder(el.left, arr);
+      postorder(el.right, arr);
       arr.push(el.value);
     }
     let arr = [];
-    po(this.root, arr);
+    postorder(this.root, arr);
     return arr;
   }
 }
