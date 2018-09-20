@@ -131,6 +131,20 @@ function BinarySearchTree() {
     postorder(this.root, arr);
     return arr;
   }
+
+  this.levelOrder = function() {
+    let queue = [];
+    let collection = [];
+    if (!this.root) return null;
+    queue.push(this.root);
+    while (queue.length) {
+      const front = queue[0];
+      if (front.left !== null) queue.push(front.left);
+      if (front.right !== null) queue.push(front.right);
+      collection.push(queue.shift().value);
+    }
+    return collection;
+  }
 }
 
 
@@ -141,9 +155,10 @@ bst.add(12);
 bst.add(2);
 bst.add(4);
 
-console.log('#preorder', bst.preorder());
-console.log('#inorder', bst.inorder());
-console.log('#postorder', bst.postorder());
+console.log(bst.levelOrder());
+// console.log('#preorder', bst.preorder());
+// console.log('#inorder', bst.inorder());
+// console.log('#postorder', bst.postorder());
 
 var displayTree = (tree) => console.log(JSON.stringify(tree, null, 2));
 
