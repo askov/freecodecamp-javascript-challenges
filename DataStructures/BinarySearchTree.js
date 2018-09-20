@@ -145,6 +145,20 @@ function BinarySearchTree() {
     }
     return collection;
   }
+
+  this.reverseLevelOrder = function() {
+    let queue = [];
+    let collection = [];
+    if (!this.root) return null;
+    queue.push(this.root);
+    while (queue.length) {
+      const front = queue[0];
+      if (front.right !== null) queue.push(front.right);
+      if (front.left !== null) queue.push(front.left);
+      collection.push(queue.shift().value);
+    }
+    return collection;
+  }
 }
 
 
@@ -155,7 +169,8 @@ bst.add(12);
 bst.add(2);
 bst.add(4);
 
-console.log(bst.levelOrder());
+// console.log(bst.levelOrder());
+console.log(bst.reverseLevelOrder());
 // console.log('#preorder', bst.preorder());
 // console.log('#inorder', bst.inorder());
 // console.log('#postorder', bst.postorder());
