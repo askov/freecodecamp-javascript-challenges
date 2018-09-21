@@ -182,12 +182,26 @@ function BinarySearchTree() {
     if (!res) {
       return null;
     }
-    if (!res.parent) {
-      this.root = null;
-      return;
-    }
     if (!res.node.left && !res.node.right) {
-      res.parent[res.direction] = null;
+      if (!res.parent) {
+        this.root = null;
+      } else {
+        res.parent[res.direction] = null;
+      }
+    }
+    if (res.node.left && !res.node.right) {
+      if (!res.parent) {
+        this.root = res.node.left;
+      } else {
+        res.parent[res.direction] = res.node.left;
+      }
+    }
+    if (!res.node.left && res.node.right) {
+      if (!res.parent) {
+        this.root = res.node.right;
+      } else {
+        res.parent[res.direction] = res.node.right;
+      }
     }
   }
 }
@@ -211,9 +225,9 @@ var displayTree = (tree) => console.log(JSON.stringify(tree, null, 2));
 
 
 // bst.remove(222);
-bst.remove(2);
-bst.remove(4);
-bst.remove(3);
+// bst.remove(2);
+// bst.remove(4);
+bst.remove(8);
 // bst.remove(12);
 // bst.remove(8);
 
