@@ -203,16 +203,47 @@ function BinarySearchTree() {
         res.parent[res.direction] = res.node.right;
       }
     }
-  }
+    if (res.node.left && res.node.right) {
+      let rmin = res.node.right,
+        rparent = res.node.right;
+      while (rmin.left) {
+        rparent = rmin;
+        rmin = rmin.left;
+      }
+      res.node.value = rmin.value;
+      if (!rmin.left && !rmin.right) {
+        res.node.right = null;
+      } else if (!rmin.right) {
+        rparent.left = null;
+      } else {
+        rparent.left = rmin.right;
+      }
+    }
+  };
 }
 
 
 let bst = new BinarySearchTree();
+
 bst.add(8);
-bst.add(3);
-bst.add(12);
-bst.add(2);
 bst.add(4);
+bst.add(12);
+// bst.add(2);
+// bst.add(6);
+// bst.add(10);
+// bst.add(14);
+
+// bst.add(11);
+// bst.add(3);
+// bst.add(12);
+// bst.add(2);
+// bst.add(4);
+
+// bst.add(8);
+// bst.add(3);
+// bst.add(12);
+// bst.add(2);
+// bst.add(4);
 
 
 // console.log(bst.levelOrder());
@@ -227,8 +258,8 @@ var displayTree = (tree) => console.log(JSON.stringify(tree, null, 2));
 // bst.remove(222);
 // bst.remove(2);
 // bst.remove(4);
-bst.remove(8);
-// bst.remove(12);
 // bst.remove(8);
+// bst.remove(12);
+bst.remove(8);
 
 displayTree(bst.root);
