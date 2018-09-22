@@ -220,6 +220,19 @@ function BinarySearchTree() {
       }
     }
   };
+
+  this.invert = function() {
+    if (!this.root) return null;
+    const invert = (el) => {
+      if (!el) return;
+      const tmp = el.left;
+      el.left = el.right;
+      el.right = tmp;
+      invert(el.left);
+      invert(el.right);
+    };
+    invert(this.root);
+  };
 }
 
 
@@ -228,6 +241,7 @@ let bst = new BinarySearchTree();
 bst.add(8);
 bst.add(4);
 bst.add(12);
+bst.add(11);
 // bst.add(2);
 // bst.add(6);
 // bst.add(10);
@@ -260,6 +274,7 @@ var displayTree = (tree) => console.log(JSON.stringify(tree, null, 2));
 // bst.remove(4);
 // bst.remove(8);
 // bst.remove(12);
-bst.remove(8);
+// bst.remove(8);
+bst.invert();
 
 displayTree(bst.root);
