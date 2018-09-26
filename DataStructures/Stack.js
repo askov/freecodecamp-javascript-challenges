@@ -1,26 +1,27 @@
-function Stack() {
+module.exports = function Stack() {
   var collection = [];
-  this.print = function () {
-    console.log(collection);
+
+  this.print = function() {
+    return collection;
   };
 
-  this.pop = function () {
+  this.pop = function() {
     return collection.pop();
   };
 
-  this.push = function (el) {
+  this.push = function(el) {
     collection.push(el);
   };
 
-  this.peek = function () {
+  this.peek = function() {
     return collection[0];
   };
 
-  this.isEmpty = function () {
+  this.isEmpty = function() {
     return collection.length === 0;
   };
 
-  this.clear = function () {
+  this.clear = function() {
     collection = [];
   };
 }

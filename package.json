@@ -1,0 +1,27 @@
+{
+  "name": "freecodecamp-javascript-challenges",
+  "version": "1.0.0",
+  "description": "Free code camp javascript challenges",
+  "main": "index.js",
+  "scripts": {
+    "test": "./node_modules/mocha/bin/mocha './spec/**/*.js'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/askov/freecodecamp-javascript-challenges.git"
+  },
+  "keywords": [
+    "javascript",
+    "freecodecamp"
+  ],
+  "author": "Alexander Askov",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/askov/freecodecamp-javascript-challenges/issues"
+  },
+  "homepage": "https://github.com/askov/freecodecamp-javascript-challenges#readme",
+  "dependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^5.2.0"
+  }
+}
