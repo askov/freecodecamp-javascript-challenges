@@ -10,11 +10,9 @@ class CircularQueue {
       this.queue.push(null);
       size--;
     }
-
   }
 
   print() {
-    console.log('#queue', this.queue);
     return this.queue;
   }
 

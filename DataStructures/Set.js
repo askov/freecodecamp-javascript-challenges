@@ -2,22 +2,21 @@ function Set() {
   // the var collection will hold our set
   var collection = [];
 
-  this.print = function () {
-    console.log(collection);
+  this.print = function() {
     return collection;
   };
 
   // this method will check for the presence of an element and return true or false
-  this.has = function (element) {
+  this.has = function(element) {
     return (collection.indexOf(element) !== -1);
   };
 
   // this method will return all the values in the set
-  this.values = function () {
+  this.values = function() {
     return collection;
   };
 
-  this.add = function (element) {
+  this.add = function(element) {
     if (!this.has(element)) {
       collection.push(element);
       return true;
@@ -25,7 +24,7 @@ function Set() {
     return false;
   };
 
-  this.remove = function (element) {
+  this.remove = function(element) {
     const i = collection.indexOf(element);
     if (i !== -1) {
       collection.splice(i, 1);
@@ -34,11 +33,11 @@ function Set() {
     return false;
   };
 
-  this.size = function () {
+  this.size = function() {
     return collection.length;
   };
 
-  this.union = function (setB) {
+  this.union = function(setB) {
     const setC = new Set();
     collection.concat(setB.values()).forEach(el => {
       setC.add(el);
@@ -46,7 +45,7 @@ function Set() {
     return setC;
   };
 
-  this.intersection = function (setB) {
+  this.intersection = function(setB) {
     const setC = new Set();
     collection.forEach(el => {
       if (setB.has(el)) {
@@ -56,7 +55,7 @@ function Set() {
     return setC;
   };
 
-  this.difference = function (setB) {
+  this.difference = function(setB) {
     const setC = new Set();
     collection.values().forEach(el => {
       if (!setB.has(el)) {
@@ -64,9 +63,9 @@ function Set() {
       }
     });
     return setC;
-  }
+  };
 
-  this.subset = function (setB) {
+  this.subset = function(setB) {
     return !this.difference(setB).values().length;
   };
 

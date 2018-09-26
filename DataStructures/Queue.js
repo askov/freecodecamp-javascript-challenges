@@ -1,27 +1,27 @@
 function Queue() {
   var collection = [];
 
-  this.print = function () {
-    console.log(collection);
+  this.print = function() {
+    return collection;
   };
 
-  this.enqueue = function (el) {
+  this.enqueue = function(el) {
     collection.push(el);
   };
 
-  this.dequeue = function () {
+  this.dequeue = function() {
     return collection.shift();
   };
 
-  this.isEmpty = function () {
+  this.isEmpty = function() {
     return collection.length === 0;
   };
 
-  this.size = function () {
+  this.size = function() {
     return collection.length;
   };
 
-  this.front = function () {
+  this.front = function() {
     return collection[0];
   };
 }

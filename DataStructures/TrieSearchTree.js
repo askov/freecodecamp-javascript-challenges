@@ -38,7 +38,7 @@ var Trie = function() {
       }
     }
     return el.isEnd();
-  }
+  };
 
 
   this.print = function() {
@@ -52,7 +52,7 @@ var Trie = function() {
       }
 
     };
-    addWord(this.root, '')
+    addWord(this.root, '');
     return words;
   };
   // change code above this line

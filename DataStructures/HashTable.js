@@ -2,22 +2,28 @@ var called = 0;
 var hash = (string) => {
   called++;
   var hash = 0;
-  for (var i = 0; i < string.length; i++) { hash += string.charCodeAt(i); }
+  for (var i = 0; i < string.length; i++) {
+    hash += string.charCodeAt(i);
+  }
   return hash;
 };
 
-var HashTable = function () {
+var HashTable = function() {
   this.collection = {};
   // change code below this line
-  this.add = function (key, value) {
+  this.add = function(key, value) {
     const k = hash(key);
     if (!this.collection.hasOwnProperty(k)) {
-      this.collection[k] = [{ [key]: value }];
+      this.collection[k] = [{
+        [key]: value
+      }];
     } else {
-      this.collection[k] = [...this.collection[k], { [key]: value }]
+      this.collection[k] = [...this.collection[k], {
+        [key]: value
+      }];
     }
   };
-  this.remove = function (key) {
+  this.remove = function(key) {
     const k = hash(key);
     if (!this.collection[k]) return;
     if (this.collection[k].length === 1) {
@@ -27,7 +33,7 @@ var HashTable = function () {
       this.collection.splice(i, 1);
     }
   };
-  this.lookup = function (key) {
+  this.lookup = function(key) {
     const k = hash(key);
     if (!this.collection[k]) return null;
     return this.collection[k].find(el => el[key]);

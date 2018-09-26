@@ -16,7 +16,7 @@ function BinarySearchTree() {
       el = el.left;
     }
     return el.value;
-  }
+  };
   this.findMax = function() {
     if (!this.root) return null;
     let el = this.root;
@@ -24,7 +24,7 @@ function BinarySearchTree() {
       el = el.right;
     }
     return el.value;
-  }
+  };
 
   this.add = function(value) {
     if (!this.root) {
@@ -52,7 +52,7 @@ function BinarySearchTree() {
         return null;
       }
     }
-  }
+  };
 
   this.isPresent = function(value) {
     let el = this.root;
@@ -65,9 +65,8 @@ function BinarySearchTree() {
         return true;
       }
     }
-    console.log('#el', el);
     return false;
-  }
+  };
 
   this.findMinHeight = function() {
     const fh = (el) => {
@@ -75,9 +74,9 @@ function BinarySearchTree() {
         return -1;
       }
       return Math.min(fh(el.left), fh(el.right)) + 1;
-    }
+    };
     return fh(this.root);
-  }
+  };
 
   this.findMaxHeight = function() {
     const fh = (el) => {
@@ -85,13 +84,13 @@ function BinarySearchTree() {
         return -1;
       }
       return Math.max(fh(el.left), fh(el.right)) + 1;
-    }
+    };
     return fh(this.root);
-  }
+  };
 
   this.isBalanced = function() {
     return (this.findMaxHeight() - this.findMinHeight()) <= 1;
-  }
+  };
 
   this.preorder = function() {
     if (!this.root) return null;
@@ -100,11 +99,11 @@ function BinarySearchTree() {
       arr.push(el.value);
       preorder(el.left, arr);
       preorder(el.right, arr);
-    }
+    };
     let arr = [];
     preorder(this.root, arr);
     return arr;
-  }
+  };
 
   this.inorder = function() {
     if (!this.root) return null;
@@ -113,11 +112,11 @@ function BinarySearchTree() {
       inorder(el.left, arr);
       arr.push(el.value);
       inorder(el.right, arr);
-    }
+    };
     let arr = [];
     inorder(this.root, arr);
     return arr;
-  }
+  };
 
   this.postorder = function() {
     if (!this.root) return null;
@@ -126,11 +125,11 @@ function BinarySearchTree() {
       postorder(el.left, arr);
       postorder(el.right, arr);
       arr.push(el.value);
-    }
+    };
     let arr = [];
     postorder(this.root, arr);
     return arr;
-  }
+  };
 
   this.levelOrder = function() {
     let queue = [];
@@ -144,7 +143,7 @@ function BinarySearchTree() {
       collection.push(queue.shift().value);
     }
     return collection;
-  }
+  };
 
   this.reverseLevelOrder = function() {
     let queue = [];
@@ -158,7 +157,7 @@ function BinarySearchTree() {
       collection.push(queue.shift().value);
     }
     return collection;
-  }
+  };
 
   this.remove = function(value) {
     const findNode = (root, parent, direction) => {
@@ -177,7 +176,7 @@ function BinarySearchTree() {
       if (value > root.value) {
         return findNode(root.right, parent, 'right');
       }
-    }
+    };
     const res = findNode(this.root);
     if (!res) {
       return null;

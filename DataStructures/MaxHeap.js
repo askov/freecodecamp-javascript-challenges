@@ -8,7 +8,7 @@ var MaxHeap = function() {
         const tmp = nodes[index];
         nodes[index] = nodes[parentIndex];
         nodes[parentIndex] = tmp;
-        sw(nodes, parentIndex)
+        sw(nodes, parentIndex);
       } else {
         return;
       }
@@ -52,7 +52,7 @@ var MaxHeap = function() {
     this.nodes.unshift(last);
     sw(this.nodes, 0);
     return root;
-  }
+  };
   // change code above this line
 };
 

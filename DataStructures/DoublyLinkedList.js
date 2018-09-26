@@ -57,7 +57,7 @@ var DoublyLinkedList = function() {
       }
       el = el.prev;
     }
-  }
+  };
 
   this.printHead = function() {
     return this.head;
