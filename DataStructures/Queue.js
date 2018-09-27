@@ -1,4 +1,4 @@
-function Queue() {
+module.exports = function Queue() {
   var collection = [];
 
   this.print = function() {
@@ -24,12 +24,4 @@ function Queue() {
   this.front = function() {
     return collection[0];
   };
-}
-
-
-const q = new Queue();
-
-q.enqueue('dodo');
-q.enqueue('elephant');
-q.enqueue('human');
-q.print();
+};
