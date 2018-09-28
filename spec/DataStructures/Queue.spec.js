@@ -36,7 +36,7 @@ describe('Queue', function() {
     it('should return undefined if collection is empty', function() {
       expect(queue.dequeue()).equal(undefined);
     });
-    it('should dequeue firts element of non-empty collection and return it', function() {
+    it('should dequeue first element of non-empty collection and return it', function() {
       queue.enqueue(42);
       queue.enqueue(22);
       expect(queue.dequeue()).equal(42);
