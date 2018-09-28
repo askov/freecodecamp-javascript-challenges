@@ -1,4 +1,4 @@
-function PriorityQueue() {
+module.exports = function PriorityQueue() {
   this.collection = [];
 
   this.printCollection = function() {
@@ -17,7 +17,8 @@ function PriorityQueue() {
   };
 
   this.dequeue = function() {
-    return this.collection.shift()[0];
+    const deq = this.collection.shift();
+    return deq ? deq[0] : deq;
   };
 
   this.isEmpty = function() {
@@ -29,14 +30,7 @@ function PriorityQueue() {
   };
 
   this.front = function() {
-    return this.collection[0][0];
+    const front = this.collection[0];
+    return front && front[0];
   };
-}
-
-
-const pq = new PriorityQueue();
-
-pq.enqueue(['dodo', 1]);
-pq.enqueue(['elephant', 3]);
-pq.enqueue(['human', 1]);
-console.log(pq.collection);
+};
