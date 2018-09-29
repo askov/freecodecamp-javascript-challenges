@@ -1,4 +1,4 @@
-class CircularQueue {
+module.exports = class CircularQueue {
   constructor(size) {
 
     this.queue = [];
@@ -42,22 +42,4 @@ class CircularQueue {
     }
     return null;
   }
-}
-
-
-const cq = new CircularQueue(5);
-
-console.log('#enqueue', cq.enqueue(1));
-console.log('#enqueue', cq.enqueue(2));
-console.log('#enqueue', cq.enqueue(3));
-console.log('#enqueue', cq.enqueue(4));
-console.log('#enqueue', cq.enqueue(5));
-console.log('#enqueue', cq.enqueue(6));
-console.log('#enqueue', cq.dequeue());
-console.log('#enqueue', cq.enqueue(7));
-console.log('#enqueue', cq.enqueue(8));
-console.log('#enqueue', cq.dequeue());
-console.log('#enqueue', cq.enqueue(8));
-
-
-cq.print();
+};
