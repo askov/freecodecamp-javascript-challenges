@@ -1,10 +1,10 @@
-var Map = function() {
+module.exports = function Map() {
   this.collection = {};
 
   this.add = function(key, value) {
     this.collection[key] = value;
   };
-  this.remove = function(key, value) {
+  this.remove = function(key) {
     delete this.collection[key];
   };
   this.get = function(key) {
@@ -13,7 +13,7 @@ var Map = function() {
   this.has = function(key) {
     return this.collection.hasOwnProperty(key);
   };
-  this.values = function(key) {
+  this.values = function() {
     return Object.values(this.collection);
   };
   this.size = function() {
@@ -23,10 +23,3 @@ var Map = function() {
     this.collection = {};
   };
 };
-
-const m = new Map();
-
-m.add('foo', 'bar');
-// m.has('bar');
-console.log(m.has('bar'));
-console.log(m.has('baz'));
