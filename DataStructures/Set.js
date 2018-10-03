@@ -1,4 +1,4 @@
-function Set() {
+module.exports = function Set() {
   // the var collection will hold our set
   var collection = [];
 
@@ -69,19 +69,18 @@ function Set() {
     return !this.difference(setB).values().length;
   };
 
-}
+};
 
+// const s1 = new Set();
+// const s2 = new Set();
 
-const s1 = new Set();
-const s2 = new Set();
+// s1.add('a');
+// s1.add('b');
+// s1.add('c');
 
-s1.add('a');
-s1.add('b');
-s1.add('c');
+// s2.add('a');
+// s2.add('b');
+// s2.add('d');
+// s2.add('e');
 
-s2.add('a');
-s2.add('b');
-s2.add('d');
-s2.add('e');
-
-console.log(s1.union(s2));
+// console.log(s1.union(s2));
