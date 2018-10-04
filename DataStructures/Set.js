@@ -2,10 +2,6 @@ module.exports = function Set() {
   // the var collection will hold our set
   var collection = [];
 
-  this.print = function() {
-    return collection;
-  };
-
   // this method will check for the presence of an element and return true or false
   this.has = function(element) {
     return (collection.indexOf(element) !== -1);
