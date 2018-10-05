@@ -53,7 +53,7 @@ module.exports = function Set() {
 
   this.difference = function(setB) {
     const setC = new Set();
-    collection.values().forEach(el => {
+    collection.forEach(el => {
       if (!setB.has(el)) {
         setC.add(el);
       }

@@ -2,10 +2,12 @@ var expect = require('chai').expect,
   Set = require('../../DataStructures/Set');
 
 describe('Set', function() {
-  var set;
+  var set, s1, s2;
 
   beforeEach(function() {
     set = new Set();
+    s1 = new Set();
+    s2 = new Set();
   });
 
   it('should be a function', function() {
@@ -21,7 +23,7 @@ describe('Set', function() {
     });
   });
 
-  describe('#add()', function() {
+  describe('#add(el)', function() {
     it('should add value to the collection', function() {
       expect(set.values().length).equal(0);
       set.add(42);
@@ -38,7 +40,7 @@ describe('Set', function() {
     });
   });
 
-  describe('#has()', function() {
+  describe('#has(el)', function() {
     it('should check if item is presented in collection', function() {
       expect(set.has(42)).equal(false);
       set.add(42);
@@ -54,11 +56,23 @@ describe('Set', function() {
     });
   });
 
-  describe('#remove()', function() {
+  describe('#remove(el)', function() {
     it('should remove an item from collection and return true if removed, false otherwise', function() {
       expect(set.remove(42)).equal(false);
       set.add(42);
       expect(set.remove(42)).equal(true);
+    });
+  });
+
+  describe('#subset(set)', function() {
+    it('should remove an item from collection and return true if removed, false otherwise', function() {
+      s1.add(1);
+      s1.add(2);
+      s1.add(3);
+      s2.add(3);
+      s2.add(1);
+      expect(s1.subset(s2)).equal(false);
+      expect(s2.subset(s1)).equal(true);
     });
   });
 });
