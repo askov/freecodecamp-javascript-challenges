@@ -75,4 +75,17 @@ describe('Set', function() {
       expect(s2.subset(s1)).equal(true);
     });
   });
+
+  describe('#difference(set)', function() {
+    it('should return new difference set', function() {
+      s1.add(1);
+      s1.add(2);
+      s1.add(3);
+      s2.add(3);
+      s2.add(1);
+      const diff = s1.difference(s2);
+      expect(diff instanceof Set).equal(true);
+      expect(diff.values()).deep.equal([2]);
+    });
+  });
 });
