@@ -88,4 +88,18 @@ describe('Set', function() {
       expect(diff.values()).deep.equal([2]);
     });
   });
+
+  describe('#intersection(set)', function() {
+    it('should return new intersection set', function() {
+      s1.add(1);
+      s1.add(2);
+      s1.add(3);
+      s2.add(3);
+      s2.add(1);
+      const intersection = s1.intersection(s2);
+      expect(intersection instanceof Set).equal(true);
+      expect(intersection.values()).deep.equal([1, 3]);
+    });
+  });
+
 });
