@@ -66,17 +66,3 @@ module.exports = function Set() {
   };
 
 };
-
-// const s1 = new Set();
-// const s2 = new Set();
-
-// s1.add('a');
-// s1.add('b');
-// s1.add('c');
-
-// s2.add('a');
-// s2.add('b');
-// s2.add('d');
-// s2.add('e');
-
-// console.log(s1.union(s2));
