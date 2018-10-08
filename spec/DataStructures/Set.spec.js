@@ -102,4 +102,15 @@ describe('Set', function() {
     });
   });
 
+  describe('#union(set)', function() {
+    it('should return new union set', function() {
+      s1.add(1);
+      s1.add(2);
+      s2.add(1);
+      s2.add(3);
+      const union = s1.intersection(s2);
+      expect(union instanceof Set).equal(true);
+      expect(union.values()).deep.equal([1]);
+    });
+  });
 });
