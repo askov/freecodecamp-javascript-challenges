@@ -3,7 +3,10 @@ var Node = function(data, prev) {
   this.prev = prev;
   this.next = null;
 };
-var DoublyLinkedList = function() {
+
+module.exports.Node = Node;
+
+module.exports.DoublyLinkedList = function() {
   this.head = null;
   this.tail = null;
   // change code below this line
@@ -67,16 +70,3 @@ var DoublyLinkedList = function() {
   };
   // change code above this line
 };
-
-const dl = new DoublyLinkedList();
-
-dl.add('Cat');
-dl.add('Dog');
-// dl.add('Bird');
-// dl.remove('Cat')
-// dl.remove('Dog');
-// dl.remove('Cat');
-// dl.remove('Bird');
-dl.reverse();
-console.log(dl.printHead());
-// console.log(dl.printHead());
