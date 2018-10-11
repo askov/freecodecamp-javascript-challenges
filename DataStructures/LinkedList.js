@@ -1,11 +1,15 @@
-function LinkedList() {
+var Node = function(element) {
+  this.element = element;
+  this.next = null;
+};
+
+module.exports.Node = Node;
+
+module.exports.LinkedList = function() {
   var length = 0;
   var head = null;
 
-  var Node = function(element) {
-    this.element = element;
-    this.next = null;
-  };
+
 
   this.head = function() {
     return head;
@@ -119,25 +123,3 @@ function LinkedList() {
     return el.element;
   };
 }
-
-const ll = new LinkedList();
-// console.log(ll.isEmpty());
-ll.add('Cat');
-ll.add('Dog');
-ll.addAt(0, 'Bird');
-// console.log(ll.isEmpty());
-// ll.remove('Cat');
-// console.log(ll.isEmpty());
-
-// ll.add('Dog');
-// ll.add('Bird');
-
-// console.log(ll.removeAt(2));
-// console.log(ll.indexOf('Dog'));
-// console.log(ll.elementAt(5));
-// ll.add('Parrot');
-
-// ll.remove('Bird');
-// ll.remove('Parrot');
-// ll.remove('Cat');
-console.log(ll.head());
