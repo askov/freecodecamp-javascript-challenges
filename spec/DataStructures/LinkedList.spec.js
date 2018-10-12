@@ -32,7 +32,14 @@ describe('LinkedList', function() {
   });
 
 
-
+  describe('#isEmpty()', function() {
+    it('should be a function', function() {
+      expect(ll.isEmpty).to.be.a('function');
+    });
+    it('should return true if linked list is empty', function() {
+      expect(ll.isEmpty()).equal(true);
+    });
+  });
 
 
 
