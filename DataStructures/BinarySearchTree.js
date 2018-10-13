@@ -1,12 +1,11 @@
-var displayTree = (tree) => console.log(JSON.stringify(tree, null, 2));
-
-function Node(value) {
+var Node = function(value) {
   this.value = value;
   this.left = null;
   this.right = null;
-}
+};
+module.exports.Node = Node;
 
-function BinarySearchTree() {
+module.exports.BinarySearchTree = function() {
   this.root = null;
   // change code below this line
   this.findMin = function() {
@@ -233,47 +232,3 @@ function BinarySearchTree() {
     invert(this.root);
   };
 }
-
-
-let bst = new BinarySearchTree();
-
-bst.add(8);
-bst.add(4);
-bst.add(12);
-bst.add(11);
-// bst.add(2);
-// bst.add(6);
-// bst.add(10);
-// bst.add(14);
-
-// bst.add(11);
-// bst.add(3);
-// bst.add(12);
-// bst.add(2);
-// bst.add(4);
-
-// bst.add(8);
-// bst.add(3);
-// bst.add(12);
-// bst.add(2);
-// bst.add(4);
-
-
-// console.log(bst.levelOrder());
-// console.log(bst.reverseLevelOrder());
-// console.log('#preorder', bst.preorder());
-// console.log('#inorder', bst.inorder());
-// console.log('#postorder', bst.postorder());
-
-var displayTree = (tree) => console.log(JSON.stringify(tree, null, 2));
-
-
-// bst.remove(222);
-// bst.remove(2);
-// bst.remove(4);
-// bst.remove(8);
-// bst.remove(12);
-// bst.remove(8);
-bst.invert();
-
-displayTree(bst.root);
