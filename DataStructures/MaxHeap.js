@@ -1,4 +1,4 @@
-var MaxHeap = function() {
+module.exports.MaxHeap = function() {
   // change code below this line
   this.nodes = [];
   this.insert = function(value) {
@@ -55,33 +55,3 @@ var MaxHeap = function() {
   };
   // change code above this line
 };
-
-
-var mh = new MaxHeap();
-
-mh.insert(18);
-// console.log(mh.print());
-
-mh.insert(19);
-// console.log(mh.print());
-
-mh.insert(20);
-// console.log(mh.print());
-
-
-mh.insert(10);
-// console.log(mh.print());
-
-mh.insert(17);
-// console.log(mh.print());
-
-mh.insert(11);
-// console.log(mh.print());
-
-// mh.insert(11);
-mh.insert(21);
-
-mh.remove();
-console.log(mh.print());
-
-// console.log(mh.print());
