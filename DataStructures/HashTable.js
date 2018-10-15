@@ -1,5 +1,6 @@
 var called = 0;
-var hash = (string) => {
+
+var hash = function(string) {
   called++;
   var hash = 0;
   for (var i = 0; i < string.length; i++) {
@@ -7,8 +8,9 @@ var hash = (string) => {
   }
   return hash;
 };
+module.exports.hash = hash;
 
-var HashTable = function() {
+module.exports.HashTable = function() {
   this.collection = {};
   // change code below this line
   this.add = function(key, value) {
@@ -23,6 +25,7 @@ var HashTable = function() {
       }];
     }
   };
+
   this.remove = function(key) {
     const k = hash(key);
     if (!this.collection[k]) return;
@@ -33,19 +36,10 @@ var HashTable = function() {
       this.collection.splice(i, 1);
     }
   };
+
   this.lookup = function(key) {
     const k = hash(key);
     if (!this.collection[k]) return null;
     return this.collection[k].find(el => el[key]);
   };
-
-  // change code above this line
 };
-
-const h = new HashTable();
-
-h.add('foo', 42);
-h.add('foo', 38);
-
-
-console.log(h.lookup('foo'));
