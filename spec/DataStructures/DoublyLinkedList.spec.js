@@ -84,4 +84,36 @@ describe('DoublyLinkedList', function() {
     });
   });
 
+  describe('#remove(el)', function() {
+    it('should be a function', function() {
+      expect(dll.remove).to.be.a('function');
+    });
+    it('should return null for empty list', function() {
+      expect(dll.remove('cat')).equal(null);
+    });
+    it('should return undefined when item removed', function() {
+      dll.add('cat');
+      expect(dll.remove('cat')).equal(undefined);
+    });
+    it('should properly handle single element removal', function() {
+      dll.add('cat');
+      dll.remove('cat');
+      expect(dll.printHead()).equal(null);
+      expect(dll.printTail()).equal(null);
+    });
+    // it('should set head equal to the node after first element added', function() {
+    //   dll.add('cat');
+    //   expect(dll.printHead() instanceof Node).equal(true);
+    // });
+    // it('should properly link added nodes', function() {
+    //   dll.add('cat');
+    //   dll.add('dog');
+    //   expect(dll.printTail().next).equal(null);
+    //   expect(dll.printTail().data).equal('dog');
+    //   expect(dll.printHead().data).equal('cat');
+    //   expect(dll.printHead().prev).equal(null);
+    //   expect(dll.printHead().next).equal(dll.printTail());
+    // });
+  });
+
 });
