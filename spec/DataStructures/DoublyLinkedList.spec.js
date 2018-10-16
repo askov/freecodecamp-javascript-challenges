@@ -100,6 +100,7 @@ describe('DoublyLinkedList', function() {
       dll.remove('cat');
       expect(dll.printHead()).equal(null);
       expect(dll.printTail()).equal(null);
+
     });
     // it('should set head equal to the node after first element added', function() {
     //   dll.add('cat');

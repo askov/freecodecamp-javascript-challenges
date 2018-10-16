@@ -4,7 +4,8 @@
   "description": "Free code camp javascript challenges",
   "main": "index.js",
   "scripts": {
-    "test": "./node_modules/mocha/bin/mocha './spec/**/*.js'"
+    "test": "./node_modules/mocha/bin/mocha './spec/**/*.js'",
+    "test.watch": "./node_modules/mocha/bin/mocha './spec/**/*.js' --watch"
   },
   "repository": {
     "type": "git",
@@ -24,5 +25,6 @@
     "chai": "^4.2.0",
     "eslint": "^5.6.0",
     "mocha": "^5.2.0"
-  }
+  },
+  "dependencies": {}
 }
