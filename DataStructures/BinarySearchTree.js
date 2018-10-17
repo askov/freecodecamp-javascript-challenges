@@ -231,4 +231,4 @@ module.exports.BinarySearchTree = function() {
     };
     invert(this.root);
   };
-}
+};
