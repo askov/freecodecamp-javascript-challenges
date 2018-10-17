@@ -100,21 +100,25 @@ describe('DoublyLinkedList', function() {
       dll.remove('cat');
       expect(dll.printHead()).equal(null);
       expect(dll.printTail()).equal(null);
-
     });
-    // it('should set head equal to the node after first element added', function() {
-    //   dll.add('cat');
-    //   expect(dll.printHead() instanceof Node).equal(true);
-    // });
-    // it('should properly link added nodes', function() {
-    //   dll.add('cat');
-    //   dll.add('dog');
-    //   expect(dll.printTail().next).equal(null);
-    //   expect(dll.printTail().data).equal('dog');
-    //   expect(dll.printHead().data).equal('cat');
-    //   expect(dll.printHead().prev).equal(null);
-    //   expect(dll.printHead().next).equal(dll.printTail());
-    // });
+    it('should properly handle tail removal when list has more than one element', function() {
+      dll.add('cat');
+      dll.add('bird');
+      dll.add('dog');
+      dll.remove('dog');
+      expect(dll.printTail().data).equal('bird');
+      expect(dll.printTail().prev.data).equal('cat');
+      expect(dll.printTail().next).equal(null);
+    });
+    it('should properly handle middle element removal when list has more than one element', function() {
+      dll.add('cat');
+      dll.add('bird');
+      dll.add('dog');
+      dll.remove('bird');
+      expect(dll.printTail().data).equal('dog');
+      expect(dll.printTail().prev.data).equal('cat');
+      expect(dll.printHead().next.data).equal('dog');
+    });
   });
 
 });
